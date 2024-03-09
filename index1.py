@@ -9,7 +9,6 @@ from PIL import Image
 def preprocess_custom_image(image_path):
     img = Image.open(image_path)
     
-    # Resize the image to 28x28 pixels
     img = img.resize((28, 28))
     
     # Convert the image to grayscale
