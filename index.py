@@ -34,5 +34,13 @@ def serve_js(filename):
 def serve_static(filename):
     return send_from_directory(directory, filename)
 
+@app.route('/upload')
+def upload():
+    if 'image' not in request.files:
+        return "No image provided", 400
+
+    image = request.files['image']
+    image.save('uploads/' + image.filename)
+
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)
