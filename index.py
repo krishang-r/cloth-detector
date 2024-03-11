@@ -40,7 +40,8 @@ def upload():
         return "No image provided", 400
 
     image = request.files['image']
-    image.save('uploads/' + image.filename)
+    image.save(os.path.join(os.getcwd(), 'uploads', image.filename))
+    # image.save('uploads/' + image.filename)
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)
